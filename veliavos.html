@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Flags</title>
+</head>
+
+<body >
+<p>Hover on the flag.</p>	
+<p id="ltu" style="width:200px;" onmouseover="grey(this)" onmouseout="color(this)"></p>
+<hr>
+<p>Click the flag.</p>	
+<p id="au" onclick="change()"></p>
+<hr>
+<p>Click the flag.</p>
+<p id="ger" onclick ="ger_color()"></p>
+	
+
+<script type="text/javascript">
+
+var ltu=['#fdb913','#006a44','#c1272d'];
+var austria = ['#ed2939','#fff','#ed2939'];
+var germany=['#000','#D00','#FFCE00'];
+var lt = "";
+var au = "";
+var ger="";
+
+////////////////////////////////
+
+for(y in ltu){
+	
+    lt +='<div style="height:40px;width:200px;background:'+ltu[y]+'"></div>';
+ }
+document.getElementById("ltu").innerHTML=lt;
+
+/////////////////////////////
+
+for(y in austria){
+   au += '<div style="height:40px;width:200px;background:'+austria[y]+'"></div>';
+}
+document.getElementById("au").innerHTML=au;
+
+//////////////////////
+
+for(y in germany){
+   ger +='<div style="height:40px;width:200px;background:'+germany[y]+'"></div>';
+}
+document.getElementById("ger").innerHTML=ger;
+/////////////////
+
+function grey (elem) {
+    elem.style.filter = "grayscale(100%)";
+	
+}
+function color (elem) {
+            elem.style.filter = "grayscale(0%)";
+        }
+		
+function change(){
+	var sk = (Math.floor(Math.random() * 3));
+	var flags = [lt, au, ger];
+	document.getElementById("au").innerHTML=flags[sk];
+	setTimeout("change()", 1000);
+	}
+		
+		
+function ger_color (){
+	var c1, c2, c3, ger1, colors;
+	c1 = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+	c2 = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+	c3 = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+	colors = [c1, c2, c3];
+	
+	for(y in colors){
+	ger1 += '<div style="height:40px;width:200px;background:'+colors[y]+'"></div>';
+	}
+	document.getElementById("ger").innerHTML=ger1;
+	//setTimeout("ger_color()", 1000);
+}
+</script>
+
+</body>
+</html>
