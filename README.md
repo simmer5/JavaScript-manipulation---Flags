@@ -1,3 +1,3 @@
 # JavaScript-manipulation - Flags
 
-<img src="pics/Capture.png">
+<img src="pics/Capture.PNG">
